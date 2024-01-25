@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class TP1 : MonoBehaviour
 {
-    public int currentHealth;
-    public int maxHealth = 300;
+	public float currentHealth;
+	public float maxHealth = 300;
 
-    public HealthBar healthBar;
+	public HealthBar healthBar;
 
-    // For Test Only
-    public int hp_Change = -30;
+	void Start()
+	{
+		currentHealth = maxHealth;
+		healthBar.SetMaxHealth(maxHealth);
+		EventCenter.Instance.AddEventListener("PlayerBGetDamage", DealDamage);
+	}
 
-    void Start()
-    {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-    }
-
-    // For Test Only
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentHealth += hp_Change;
-            healthBar.UpdateHealth(currentHealth);
-        }
-    }
+	private void DealDamage(object hpAndQg)
+	{
+		float[] hpAndQgArray = hpAndQg as float[];
+		currentHealth += hpAndQgArray[0];
+		healthBar.UpdateHealth(currentHealth);
+		if(currentHealth <= 0)
+		{
+			EventCenter.Instance.EventTrigger("PlayerDie", this);
+		}
+	}
+	
+	// For Test Only
+	void Update()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			float[] hg = {-30, 10};
+			EventCenter.Instance.EventTrigger("PlayerBGetDamage", hg);
+		}
+	}
+	
+	private void OnDestroy() 
+	{
+		EventCenter.Instance.RemoveEventListener("PlayerBGetDamage", DealDamage);
+	}
 }

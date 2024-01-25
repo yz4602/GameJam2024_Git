@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
     public Image HpFill;
 
     // Use at void Start
-    public void SetMaxHealth(int _health)
+    public void SetMaxHealth(float _health)
     {
         HpSlider.maxValue = _health;
         HpSlider.value = _health;
@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
     }
 
     // Use in void Update
-    public void UpdateHealth(int _health)
+    public void UpdateHealth(float _health)
     {
         HpSlider.value = _health;
 
