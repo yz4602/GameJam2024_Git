@@ -22,6 +22,10 @@ public class CollisionDetection : MonoBehaviour
 				{
 					EventCenter.Instance.EventTrigger("PlayerBGetDamage", hpAndQg);
 				}
+				else if(collision.gameObject.name == "PlayerA")
+				{
+					EventCenter.Instance.EventTrigger("PlayerAGetDamage", hpAndQg);
+				}
 			}
 		}
 	}

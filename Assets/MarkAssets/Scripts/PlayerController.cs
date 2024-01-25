@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public float TorqueForce = 120f;
-	private float TorqueToAdd = 0;
 	public float StandardAngularVelocity = 180f;
-	Rigidbody2D rig;
+	private float TorqueToAdd = 0;
+	public bool isAttacked;
+	public bool isDefend;
+	public float defendTime;
+	private Rigidbody2D rig;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -28,9 +31,16 @@ public class PlayerController : MonoBehaviour
 		{
 			TorqueToAdd = -TorqueForce;
 		}
-		if(Input.GetKeyDown(KeyCode.W))
+		
+		if(Input.GetKey(KeyCode.S))
 		{
-			
+			isDefend = true;
+			defendTime += Time.deltaTime;
+		}
+		else
+		{
+			isDefend = false;
+			defendTime = 0;
 		}
 	}
 	
