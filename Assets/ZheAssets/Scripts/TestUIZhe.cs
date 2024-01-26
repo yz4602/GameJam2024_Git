@@ -8,13 +8,13 @@ public class TestUIZhe : MonoBehaviour
 	void Start()
 	{
 		//UIManager.Instance.ShowPanel<MainPanel>("MainPanel");
-		UIManager.Instance.ShowPanel<PausePanel>("PausePanel");
+		UIManager.Instance.ShowPanel<StartPanel>("StartPanel");
 		//Invoke("HidePanel",1f);
 	}
 
 	// Update is called once per frame
 	void HidePanel()
 	{
-		UIManager.Instance.HidePanel("MainPanel");
+		 UIManager.Instance.HidePanel("StartPanel");
 	}
 }

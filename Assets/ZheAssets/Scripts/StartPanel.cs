@@ -56,7 +56,7 @@ public class StartPanel : BasePanel {
 			case "btnStart":
 				Debug.Log("btnStart被点击");
 				UIManager.Instance.HidePanel("StartPanel");
-				UIManager.Instance.ShowPanel<ResultPanel>("ResultPanel");
+				// UIManager.Instance.ShowPanel<ResultPanel>("ResultPanel");
 				break;
 			case "btnQuit":
 				Debug.Log("btnQuit被点击");
