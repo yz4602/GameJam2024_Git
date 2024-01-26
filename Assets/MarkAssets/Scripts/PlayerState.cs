@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
 	public GameObject player;
+	public GameObject LoseBalanceDot;
 	private string playerName;
 	
 	public float currentHealth;
@@ -15,6 +16,11 @@ public class PlayerState : MonoBehaviour
 
 	public HealthBar healthBar;
 	public BalanceBar balanceBar;
+	
+	[Header("Balance Related Parameter")]
+	private bool isLostBalance;
+	private float balanceRecoverTime = 3f;
+	private float currentLoseBalance;
 
 	void Start()
 	{
@@ -43,16 +49,28 @@ public class PlayerState : MonoBehaviour
 		{
 			EventCenter.Instance.EventTrigger(playerName + "Die", this);
 		}
+		
+		if(currentBalance >= 100)
+		{
+			isLostBalance = true;
+			LoseBalanceDot.SetActive(true);
+			//currentLoseBalance += Time.deltaTime;
+		}
 	}
 	
 	// For Test Only
 	void Update()
 	{
-		// if (Input.GetMouseButtonDown(0))
-		// {
-		// 	float[] hg = {-30, 10};
-		// 	EventCenter.Instance.EventTrigger(player.name + "GetDamage", hg);
-		// }
+		if(isLostBalance) currentLoseBalance += Time.deltaTime;
+		if(currentLoseBalance >= balanceRecoverTime)
+		{
+			isLostBalance = false;
+			currentLoseBalance = 0;
+			LoseBalanceDot.SetActive(false);
+			
+			currentBalance = 100 - 5;
+			balanceBar.UpdateBalance(currentBalance);
+		}
 	}
 	
 	private void OnDestroy() 
@@ -63,7 +81,7 @@ public class PlayerState : MonoBehaviour
 	
 	private void RecoverBalance()
 	{
-		if(currentBalance >= 0)
+		if(currentBalance >= 0 && !isLostBalance)
 		{
 			currentBalance -= 5f;
 			balanceBar.UpdateBalance(currentBalance);

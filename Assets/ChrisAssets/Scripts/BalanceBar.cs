@@ -25,7 +25,6 @@ public class BalanceBar : MonoBehaviour
     public void UpdateBalance(float _balance)
     {
         BpSlider.value = _balance;
-
         BpFill.color = BpGradient.Evaluate(BpSlider.normalizedValue);
     }
 }

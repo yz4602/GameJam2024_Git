@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D rig;
 	private bool isDazed;
 	private bool isInvulnerable;
-
+	public bool isLostBalance;
 	
 	private KeyCode clockwiseKey, anticlockwiseKey, defendKey;
 	
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 			defendKey = KeyCode.DownArrow;
 		}
 	}
-
+	
 	// Update is called once per frame
 	void Update()
 	{
