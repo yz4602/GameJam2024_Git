@@ -36,7 +36,7 @@ public class TP1 : MonoBehaviour
 
 		if(currentHealth <= 0)
 		{
-			EventCenter.Instance.EventTrigger("PlayerDie", this);
+			EventCenter.Instance.EventTrigger("PlayerBDie", this);
 		}
 	}
 	
