@@ -18,13 +18,6 @@ public class StartPanel : BasePanel {
 
 	// Use this for initialization
 	void Start () {
-
-		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerEnter, (data)=>{
-		//     Debug.Log("进入");
-		// });
-		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerExit, (data) => {
-		//     Debug.Log("离开");
-		// });
 	}
 
 	private void Drag(BaseEventData data)
@@ -51,6 +44,7 @@ public class StartPanel : BasePanel {
 
 	protected override void OnClick(string btnName)
 	{
+		Debug.Log("OnClick Trigger");
 		switch(btnName)
 		{
 			case "btnStart":
@@ -73,11 +67,6 @@ public class StartPanel : BasePanel {
 	public void InitInfo()
 	{
 		Debug.Log("初始化数据");
-	}
-
-	//点击开始按钮的处理(可以放到switch里)
-	public void ClickStart()
-	{
 	}
 
 	//点击开始按钮的处理

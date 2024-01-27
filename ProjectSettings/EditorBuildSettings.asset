@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ZheAssets/Scenes/TestUIScene.unity
+    guid: 715773b786f47de47b7d45f717cd49d8
+  - enabled: 1
+    path: Assets/MarkAssets/Scenes/MotionScene.unity
+    guid: 6605a26d5e82d63488fc52011338d794
   m_configObjects: {}
