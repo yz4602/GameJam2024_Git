@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class StartPanel : BasePanel {
+public class Player1SelectPanel : BasePanel {
 
 	//public Button btnStart;
 	//public Button btnQuit;
@@ -56,7 +56,7 @@ public class StartPanel : BasePanel {
 			case "btnStart":
 				Debug.Log("btnStart被点击");
 				UIManager.Instance.HidePanel("StartPanel");
-				UIManager.Instance.ShowPanel<SelectPanel>("SelectPanel");
+				// UIManager.Instance.ShowPanel<ResultPanel>("ResultPanel");
 				break;
 			case "btnQuit":
 				Debug.Log("btnQuit被点击");
@@ -86,4 +86,3 @@ public class StartPanel : BasePanel {
 		Debug.Log("Quit Game");
 	}
 }
-
