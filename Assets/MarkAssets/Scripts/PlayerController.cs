@@ -47,32 +47,35 @@ public class PlayerController : MonoBehaviour
 		canController = !isDefend && !isDazed;
 		
 		//Debug.Log(rig.angularVelocity);
-		if(canController)
+		if(!GameOverManager.Instance.isOver)
 		{
-			if(Input.GetKey(clockwiseKey))
+			if(canController)
 			{
-				TorqueToAdd = TorqueForce;
+				if(Input.GetKey(clockwiseKey))
+				{
+					TorqueToAdd = TorqueForce;
+				}
+				if(Input.GetKey(anticlockwiseKey))
+				{
+					TorqueToAdd = -TorqueForce;
+				}
 			}
-			if(Input.GetKey(anticlockwiseKey))
+			
+			if(Input.GetKey(defendKey) && !isLostBalance && !isDazed)
 			{
-				TorqueToAdd = -TorqueForce;
+				isDefend = true;
+				defenseShied.SetActive(true);
+				defendTime += Time.deltaTime;
 			}
-		}
-		
-		if(Input.GetKey(defendKey) && !isLostBalance)
-		{
-			isDefend = true;
-			defenseShied.SetActive(true);
-			defendTime += Time.deltaTime;
-		}
-		else
-		{
-			if(isDefend)
+			else
 			{
-				isDefend = false;
-				defendTime = 0;
-				defenseShied.SetActive(false);
-			} 
+				if(isDefend)
+				{
+					isDefend = false;
+					defendTime = 0;
+					defenseShied.SetActive(false);
+				} 
+			}
 		}
 	}
 	

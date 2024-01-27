@@ -17,10 +17,10 @@ public class ScenesMgr : BaseManager<ScenesMgr>
 	/// Load Scene: Synchronize
 	/// </summary>
 	/// <param name="name"></param>
-	public void LoadScene(string name, UnityAction fun)
+	public void LoadScene(string name, UnityAction fun = null)
 	{
 		SceneManager.LoadScene(name);
-		fun();
+		if(fun != null) fun();
 	}
 	
 	public void LoadSceneAsyn(string name, UnityAction fun)

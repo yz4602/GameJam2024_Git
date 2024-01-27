@@ -88,7 +88,7 @@ public class PlayerState : MonoBehaviour
 	
 	private void RecoverBalance()
 	{
-		if(currentBalance >= 0 && !isLostBalance)
+		if(currentBalance >= 0 && !isLostBalance && !GameOverManager.Instance.isOver)
 		{
 			currentBalance -= 2.5f;
 			balanceBar.UpdateBalance(currentBalance);

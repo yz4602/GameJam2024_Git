@@ -10,7 +10,7 @@ public class CollisionDetection : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		hpAndQg = new float[]{-300f, 0f};
+		hpAndQg = new float[]{-30f, 0f};
 		//Debug.Log(collision.gameObject.name);
 		
 		foreach (ContactPoint2D contact in collision.contacts)
@@ -18,7 +18,7 @@ public class CollisionDetection : MonoBehaviour
 			Collider2D collider = contact.collider;
 			GameObject collidedObject = collider.gameObject;			
 			// Now you have the specific GameObject that was part of the collision
-			if(collidedObject.layer == LayerMask.NameToLayer("Body"))
+			if(collidedObject.layer == LayerMask.NameToLayer("Body") && !GameOverManager.Instance.isOver)
 			{
 				contactPosition = contact.point;
 				PlayerController attackedPlayer = collision.gameObject.GetComponent<PlayerController>();
