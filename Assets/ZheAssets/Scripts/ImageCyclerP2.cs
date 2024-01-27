@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ImageCyclerP2 : MonoBehaviour
 {
 	public Image[] images;
 	private int currentIndex = 0;
 	private string selectedPokemon1;
+    public TextMeshProUGUI pokemonNameText2;
 
 	void Start()
 	{
@@ -16,6 +18,7 @@ public class ImageCyclerP2 : MonoBehaviour
 	{
 		currentIndex = (currentIndex + 1) % images.Length;
 		ShowOnlyCurrentImage();
+        pokemonNameText2.text = images[currentIndex].gameObject.name;
 	}
 
 	public void OnSelectButtonClick()
