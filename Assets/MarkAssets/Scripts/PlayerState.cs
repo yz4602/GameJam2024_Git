@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-	public GameObject player;
+	public PlayerController player;
 	public GameObject LoseBalanceDot;
 	private string playerName;
 	
@@ -30,7 +30,7 @@ public class PlayerState : MonoBehaviour
 		currentBalance = minBalance;
 		balanceBar.SetMinBalance(minBalance);
 
-		playerName = player.name;
+		playerName = player.gameObject.name;
 		EventCenter.Instance.AddEventListener(playerName + "GetDamage", DealDamage);
 		InvokeRepeating("RecoverBalance", 1, 1);
 	}
@@ -38,6 +38,11 @@ public class PlayerState : MonoBehaviour
 	private void DealDamage(object hpAndQg)
 	{
 		float[] hpAndQgArray = hpAndQg as float[];
+		if(isLostBalance)
+		{
+			Debug.Log("一击必杀");
+			hpAndQgArray = new float[]{-999, 0};
+		} 
 
 		currentHealth += hpAndQgArray[0];
 		currentBalance += hpAndQgArray[1];
@@ -47,12 +52,13 @@ public class PlayerState : MonoBehaviour
 
 		if(currentHealth <= 0)
 		{
-			EventCenter.Instance.EventTrigger(playerName + "Die", this);
+			EventCenter.Instance.EventTrigger("PlayerDie", player.name);
 		}
 		
 		if(currentBalance >= 100)
 		{
 			isLostBalance = true;
+			player.isLostBalance = true;
 			LoseBalanceDot.SetActive(true);
 			//currentLoseBalance += Time.deltaTime;
 		}
@@ -65,6 +71,7 @@ public class PlayerState : MonoBehaviour
 		if(currentLoseBalance >= balanceRecoverTime)
 		{
 			isLostBalance = false;
+			player.isLostBalance = false;
 			currentLoseBalance = 0;
 			LoseBalanceDot.SetActive(false);
 			
@@ -83,7 +90,7 @@ public class PlayerState : MonoBehaviour
 	{
 		if(currentBalance >= 0 && !isLostBalance)
 		{
-			currentBalance -= 5f;
+			currentBalance -= 2.5f;
 			balanceBar.UpdateBalance(currentBalance);
 		}
 	}

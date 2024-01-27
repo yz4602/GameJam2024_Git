@@ -10,7 +10,7 @@ public class CollisionDetection : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		hpAndQg = new float[]{-30f, 0f};
+		hpAndQg = new float[]{-300f, 0f};
 		//Debug.Log(collision.gameObject.name);
 		
 		foreach (ContactPoint2D contact in collision.contacts)

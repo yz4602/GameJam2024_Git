@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,21 +22,6 @@ public class ResultPanel : BasePanel {
 		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerExit, (data) => {
 		//     Debug.Log("离开");
 		// });
-	}
-
-	private void Drag(BaseEventData data)
-	{
-		//拖拽逻辑
-	}
-
-	private void PointerDown(BaseEventData data)
-	{
-		//PointerDown逻辑
-	}
-
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public override void ShowMe()
@@ -64,21 +50,15 @@ public class ResultPanel : BasePanel {
 	{
 		//在这来根据名字判断 到底是那一个单选框或者多选框状态变化了 当前状态就是传入的value
 	}
+	
+	public TMP_Text GetControl(string controlName)
+	{
+		return GetControl<TMP_Text>(controlName);
+	}
 
 
 	public void InitInfo()
 	{
 		Debug.Log("初始化数据");
-	}
-
-	//点击开始按钮的处理（可以放到switch里）
-	public void ClickStart()
-	{
-	}
-
-	//点击开始按钮的处理
-	public void ClickQuit()
-	{
-		Debug.Log("Quit Game");
 	}
 }

@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 		
-		if(Input.GetKey(defendKey))
+		if(Input.GetKey(defendKey) && !isLostBalance)
 		{
 			isDefend = true;
 			defenseShied.SetActive(true);

@@ -485,11 +485,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306194407}
   m_CullTransparentMesh: 1
---- !u!1 &404305055 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5551590684330858614, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
+--- !u!114 &404305057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1373750246054202286, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
   m_PrefabInstance: {fileID: 162266038}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae74d9fe47fe044882b1faa63fb90bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &457201924
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +821,7 @@ GameObject:
   - component: {fileID: 483309916}
   - component: {fileID: 483309917}
   - component: {fileID: 483309918}
+  - component: {fileID: 483309919}
   m_Layer: 0
   m_Name: HealthAndBalanceControl
   m_TagString: Untagged
@@ -849,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ae6d078425d6e419e68467290695b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1180412652}
+  player: {fileID: 1180412654}
   LoseBalanceDot: {fileID: 1665312844}
   currentHealth: 0
   currentBalance: 0
@@ -869,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ae6d078425d6e419e68467290695b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 404305055}
+  player: {fileID: 404305057}
   LoseBalanceDot: {fileID: 162266039}
   currentHealth: 0
   currentBalance: 0
@@ -877,6 +884,18 @@ MonoBehaviour:
   minBalance: 0
   healthBar: {fileID: 457201927}
   balanceBar: {fileID: 129557879}
+--- !u!114 &483309919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483309914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a56c210581ac374789b57d85faf53f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &621153652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,11 +1284,17 @@ MonoBehaviour:
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
   HpFill: {fileID: 460915885}
---- !u!1 &1180412652 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5551590684330858614, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
+--- !u!114 &1180412654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1373750246054202286, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
   m_PrefabInstance: {fileID: 2967922204677247585}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae74d9fe47fe044882b1faa63fb90bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1245258574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,11 +3997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015304079340836243, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.56
+      value: -11.51
       objectReference: {fileID: 0}
     - target: {fileID: 9015304079340836243, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.58
+      value: -1.61
       objectReference: {fileID: 0}
     - target: {fileID: 9015304079340836243, guid: ceed1848bcfda1f4ba55b336ce65067a, type: 3}
       propertyPath: m_LocalPosition.z
