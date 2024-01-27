@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 		canController = !isDefend && !isDazed;
 		
 		//Debug.Log(rig.angularVelocity);
-		if(!GameOverManager.Instance.isOver)
+		if(!GameOverManager.Instance.isStop)
 		{
 			if(canController)
 			{

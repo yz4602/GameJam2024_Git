@@ -18,7 +18,7 @@ public class CollisionDetection : MonoBehaviour
 			Collider2D collider = contact.collider;
 			GameObject collidedObject = collider.gameObject;			
 			// Now you have the specific GameObject that was part of the collision
-			if(collidedObject.layer == LayerMask.NameToLayer("Body") && !GameOverManager.Instance.isOver)
+			if(collidedObject.layer == LayerMask.NameToLayer("Body") && !GameOverManager.Instance.isStop)
 			{
 				contactPosition = contact.point;
 				PlayerController attackedPlayer = collision.gameObject.GetComponent<PlayerController>();
@@ -43,14 +43,14 @@ public class CollisionDetection : MonoBehaviour
 			{
 				player.GetBounced(transform.position, contactPosition);
 				hpAndQg[0] = 0;
-				hpAndQg[1] = 50;
+				hpAndQg[1] = 60;
 				EventCenter.Instance.EventTrigger(player.gameObject.name + "GetDamage", hpAndQg);
 				Debug.Log(player.name + " 被弹反");
 			}
 			else
 			{
 				hpAndQg[0] /= 2;
-				hpAndQg[1] = 15;
+				hpAndQg[1] = 20;
 				EventCenter.Instance.EventTrigger(attackedPlayer.gameObject.name + "GetDamage", hpAndQg);
 				attackedPlayer.SetInvulnerable(true);
 				attackedPlayer.BeVulnerableDelay();

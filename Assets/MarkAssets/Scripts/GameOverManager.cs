@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameOverManager : SingletonMono<GameOverManager>
 {
 	private string _playerName;
-	public bool isOver;
+	public bool isStop;
 	// Start is called before the first frame update
 	
 	protected override void Awake()
@@ -21,7 +21,7 @@ public class GameOverManager : SingletonMono<GameOverManager>
 	
 	private void PlayerDieDo(object playerName)
 	{
-		isOver = true;
+		isStop = true;
 		_playerName = playerName as string;
 		UIManager.Instance.ShowPanel<ResultPanel>("ResultPanel");
 		Invoke("ChangeTextOnResultPanel", 0.1f);

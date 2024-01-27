@@ -36,7 +36,7 @@ public class ResultPanel : BasePanel {
 		switch(btnName)
 		{
 			case "btnResume":
-				GameOverManager.Instance.isOver = false;
+				GameOverManager.Instance.isStop = false;
 				UIManager.Instance.HidePanel("ResultPanel");
 				ScenesMgr.Instance.LoadScene("MotionScene");
 				Debug.Log("btnResume被点击");

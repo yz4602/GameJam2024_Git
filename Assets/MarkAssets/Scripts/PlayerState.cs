@@ -38,13 +38,14 @@ public class PlayerState : MonoBehaviour
 	private void DealDamage(object hpAndQg)
 	{
 		float[] hpAndQgArray = hpAndQg as float[];
+		
 		if(isLostBalance)
 		{
 			Debug.Log("一击必杀");
-			hpAndQgArray = new float[]{-999, 0};
-		} 
-
-		currentHealth += hpAndQgArray[0];
+			currentHealth += hpAndQgArray[0] < 0 ? -999 : 0;
+		}
+		
+		currentHealth += hpAndQgArray[0];	
 		currentBalance += hpAndQgArray[1];
 
 		healthBar.UpdateHealth(currentHealth);
@@ -88,7 +89,7 @@ public class PlayerState : MonoBehaviour
 	
 	private void RecoverBalance()
 	{
-		if(currentBalance >= 0 && !isLostBalance && !GameOverManager.Instance.isOver)
+		if(currentBalance >= 0 && !isLostBalance && !GameOverManager.Instance.isStop)
 		{
 			currentBalance -= 2.5f;
 			balanceBar.UpdateBalance(currentBalance);
