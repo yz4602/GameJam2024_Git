@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ImageCycler : MonoBehaviour
+public class ImageCyclerP2 : MonoBehaviour
 {
     public Image[] images;
     private int currentIndex = 0;
@@ -22,9 +22,9 @@ public class ImageCycler : MonoBehaviour
     {
         selectedPokemon1 = images[currentIndex].gameObject.name; // get the name of the selected Pokémon
         Debug.Log("Selected Pokémon: " + selectedPokemon1);
-        SelectedPokemon.Instance.playerAPokemon = selectedPokemon1; // set the selected Pokémon to the singleton
-        UIManager.Instance.HidePanel("Player1SelectPanel");
-        UIManager.Instance.ShowPanel<Player2SelectPanel>("Player2SelectPanel");
+        SelectedPokemon.Instance.playerBPokemon = selectedPokemon1; // set the selected Pokémon to the singleton
+        //UIManager.Instance.HidePanel("Player1SelectPanel");
+        //UIManager.Instance.ShowPanel<Player2SelectPanel>("Player2SelectPanel");
     }
 
     private void ShowOnlyCurrentImage()

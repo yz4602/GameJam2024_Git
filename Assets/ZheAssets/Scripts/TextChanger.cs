@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI; // Include the UI namespace
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class TextChanger : MonoBehaviour
 {

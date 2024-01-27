@@ -7,8 +7,8 @@ public class TestUIZhe : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		//UIManager.Instance.ShowPanel<MainPanel>("MainPanel");
-		UIManager.Instance.ShowPanel<Player1SelectPanel>("Player1SelectPanel");
+		UIManager.Instance.ShowPanel<StartPanel>("StartPanel");
+		//UIManager.Instance.ShowPanel<Player2SelectPanel>("Player2SelectPanel");
 		//UIManager.Instance.ShowPanel<SelectPanel>("SelectPanel");
 		//Invoke("HidePanel",1f);
 	}
