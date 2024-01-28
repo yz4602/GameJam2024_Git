@@ -10,6 +10,8 @@ public class ImageCyclerP2 : MonoBehaviour
 	private string selectedPokemon1;
     public TextMeshProUGUI pokemonNameText2;
     public GameObject pokeball;
+	public GameObject light;
+	
 
 	void Start()
 	{
@@ -21,6 +23,17 @@ public class ImageCyclerP2 : MonoBehaviour
 		currentIndex = (currentIndex + 1) % images.Length;
 		ShowOnlyCurrentImage();
         pokemonNameText2.text = images[currentIndex].gameObject.name;
+	}
+
+	public void OnPreviousButtonClick()
+	{
+		currentIndex--;
+		if (currentIndex < 0)
+		{
+			currentIndex = images.Length - 1;
+		}
+		ShowOnlyCurrentImage();
+		pokemonNameText2.text = images[currentIndex].gameObject.name;
 	}
 
 	public void OnSelectButtonClick()
@@ -47,6 +60,10 @@ public class ImageCyclerP2 : MonoBehaviour
 
         // Wait for the specified number of seconds
         yield return new WaitForSeconds(waitTime);
+
+		light.SetActive(true);
+
+		yield return new WaitForSeconds(1);
         UIManager.Instance.HidePanel("Player2SelectPanel");
         ScenesMgr.Instance.LoadScene("MotionScene");
         // After waiting

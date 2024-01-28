@@ -17,6 +17,10 @@ public class ImageCycler : MonoBehaviour
 
     public GameObject pokeball;
 
+    public GameObject light;
+
+    public GameObject character;
+
     void Start()
     {
         ShowOnlyCurrentImage();
@@ -25,6 +29,17 @@ public class ImageCycler : MonoBehaviour
     public void OnNextButtonClick()
     {
         currentIndex = (currentIndex + 1) % images.Length;
+        ShowOnlyCurrentImage();
+        pokemonNameText.text = images[currentIndex].gameObject.name;
+    }
+
+    public void OnPreviousButtonClick()
+    {
+        currentIndex--;
+        if (currentIndex < 0)
+        {
+            currentIndex = images.Length - 1;
+        }
         ShowOnlyCurrentImage();
         pokemonNameText.text = images[currentIndex].gameObject.name;
     }
@@ -49,6 +64,14 @@ public class ImageCycler : MonoBehaviour
 
         // Wait for the specified number of seconds
         yield return new WaitForSeconds(waitTime);
+
+        light.SetActive(true);
+        //yield return new WaitForSeconds(1);
+        // wait for 0.4 seconds
+        yield return new WaitForSeconds(0.8f);
+        // hide the character
+        character.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         UIManager.Instance.HidePanel("Player1SelectPanel");
         UIManager.Instance.ShowPanel<Player2SelectPanel>("Player2SelectPanel");
         // After waiting

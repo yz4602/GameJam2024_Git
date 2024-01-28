@@ -16,7 +16,7 @@ public class TextChanger : MonoBehaviour
         switch (clickCount)
         {
             case 1:
-                displayText.text = "People live with them, play with them, and even talk with them.";
+                displayText.text = "People live with them, play with them, and work with them.";
                 break;
             case 2:
                 displayText.text = "Most importantly, we fight with them.";
@@ -31,7 +31,7 @@ public class TextChanger : MonoBehaviour
                 displayText.text = "Let's fight to be the champion of the Pal Fight Tournament!";
                 break;
             case 6:
-                displayText.text = "Now choose your pal and let's go!";
+                displayText.text = "Let's go!";
                 break;
             case 7:
                 UIManager.Instance.HidePanel("SelectPanel");
