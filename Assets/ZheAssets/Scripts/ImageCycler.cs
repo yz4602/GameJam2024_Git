@@ -28,6 +28,7 @@ public class ImageCycler : MonoBehaviour
 
     public void OnNextButtonClick()
     {
+        SoundMgr.Instance.PlaySound("ClickSound", false);
         currentIndex = (currentIndex + 1) % images.Length;
         ShowOnlyCurrentImage();
         pokemonNameText.text = images[currentIndex].gameObject.name;
@@ -35,6 +36,7 @@ public class ImageCycler : MonoBehaviour
 
     public void OnPreviousButtonClick()
     {
+        SoundMgr.Instance.PlaySound("ClickSound", false);
         currentIndex--;
         if (currentIndex < 0)
         {
@@ -46,6 +48,8 @@ public class ImageCycler : MonoBehaviour
 
     public void OnSelectButtonClick()
     {
+        SoundMgr.Instance.PlaySound("ClickSound", false);
+        SoundMgr.Instance.PlaySound("PokeballCapture2", false);
         selectedPokemon1 = images[currentIndex].gameObject.name; // get the name of the selected Pokémon
         Debug.Log("Selected Pokémon: " + selectedPokemon1);
         SelectedPokemon.Instance.playerAPokemon = selectedPokemon1; // set the selected Pokémon to the singleton

@@ -12,6 +12,7 @@ public class TextChanger : MonoBehaviour
     // Function to change text
     public void ChangeText()
     {
+        SoundMgr.Instance.PlaySound("ClickSound", false);
         clickCount++;
         switch (clickCount)
         {
