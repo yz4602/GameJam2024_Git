@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
 	public PlayerController player;
+	public Animator anim;
 	public GameObject LoseBalanceDot;
 	private string playerName;
 	
@@ -21,6 +23,7 @@ public class PlayerState : MonoBehaviour
 	private bool isLostBalance;
 	private float balanceRecoverTime = 3f;
 	private float currentLoseBalance;
+	private float[] hpAndQGStamp;
 
 	void Start()
 	{
@@ -42,8 +45,16 @@ public class PlayerState : MonoBehaviour
 		if(isLostBalance)
 		{
 			Debug.Log("一击必杀");
-			currentHealth += hpAndQgArray[0] < 0 ? -999 : 0;
+			
+			if(playerName == "PlayerB") UIManager.Instance.ShowPanel<PkqFinishPanel>("PkqFinishPanel");
+			else UIManager.Instance.ShowPanel<MwFinishPanel>("MwFinishPanel");
+			hpAndQGStamp = hpAndQgArray;
+			GameOverManager.Instance.isStop = true;
+			
+			Invoke("TriggerPlayerFinish", 3);
 		}
+		
+		if(!anim.GetBool("isDefend")) anim.SetTrigger("BeHit");
 		
 		currentHealth += hpAndQgArray[0];	
 		currentBalance += hpAndQgArray[1];
@@ -51,8 +62,11 @@ public class PlayerState : MonoBehaviour
 		healthBar.UpdateHealth(currentHealth);
 		balanceBar.UpdateBalance(currentBalance);
 
-		if(currentHealth <= 0)
+		if(currentHealth <= 0 && !isLostBalance)
 		{
+			anim.SetTrigger("Die");
+			player.GetComponentInChildren<KeepRotation>().enabled = false;
+			player.transform.GetChild(0).rotation = quaternion.identity;
 			EventCenter.Instance.EventTrigger("PlayerDie", player.name);
 		}
 		
@@ -94,5 +108,15 @@ public class PlayerState : MonoBehaviour
 			currentBalance -= 2.5f;
 			balanceBar.UpdateBalance(currentBalance);
 		}
+	}
+	
+	private void TriggerPlayerFinish()
+	{
+		currentHealth += hpAndQGStamp[0] < 0 ? -999 : 0;
+		healthBar.UpdateHealth(currentHealth);
+		anim.SetTrigger("Die");
+		player.GetComponentInChildren<KeepRotation>().enabled = false;
+		player.transform.GetChild(0).rotation = quaternion.identity;
+		EventCenter.Instance.EventTrigger("PlayerDie", player.name);
 	}
 }

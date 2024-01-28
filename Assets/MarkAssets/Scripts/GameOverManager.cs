@@ -23,6 +23,7 @@ public class GameOverManager : SingletonMono<GameOverManager>
 	{
 		isStop = true;
 		_playerName = playerName as string;
+		
 		UIManager.Instance.ShowPanel<ResultPanel>("ResultPanel");
 		Invoke("ChangeTextOnResultPanel", 0.1f);
 	}

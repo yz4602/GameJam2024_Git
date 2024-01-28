@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeepRotation : MonoBehaviour
 {
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.rotation = Quaternion.identity;
     }

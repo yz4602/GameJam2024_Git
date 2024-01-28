@@ -19,11 +19,14 @@ public class PlayerController : MonoBehaviour
 	private bool isInvulnerable;
 	public bool isLostBalance;
 	
+	private Animator anim;
+	
 	private KeyCode clockwiseKey, anticlockwiseKey, defendKey;
 	
 	// Start is called before the first frame update
 	void Awake()
 	{
+		anim = GetComponent<Animator>();
 		rig = GetComponent<Rigidbody2D>();
 		if(gameObject.name == "PlayerA")
 		{
@@ -64,6 +67,7 @@ public class PlayerController : MonoBehaviour
 			if(Input.GetKey(defendKey) && !isLostBalance && !isDazed)
 			{
 				isDefend = true;
+				anim.SetBool("isDefend", true);
 				defenseShied.SetActive(true);
 				defendTime += Time.deltaTime;
 			}
@@ -72,6 +76,7 @@ public class PlayerController : MonoBehaviour
 				if(isDefend)
 				{
 					isDefend = false;
+					anim.SetBool("isDefend", false);
 					defendTime = 0;
 					defenseShied.SetActive(false);
 				} 
