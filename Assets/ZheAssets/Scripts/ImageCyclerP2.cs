@@ -11,6 +11,8 @@ public class ImageCyclerP2 : MonoBehaviour
     public TextMeshProUGUI pokemonNameText2;
     public GameObject pokeball;
 	public GameObject light;
+
+	public GameObject character;
 	
 
 	void Start()
@@ -62,8 +64,14 @@ public class ImageCyclerP2 : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
 		light.SetActive(true);
+        //yield return new WaitForSeconds(1);
+        // wait for 0.4 seconds
+        yield return new WaitForSeconds(0.8f);
+		// hide the character
+		character.SetActive(false);
 
-		yield return new WaitForSeconds(1);
+		// wait for 0.4 seconds before loading the next scene
+		yield return new WaitForSeconds(0.4f);
         UIManager.Instance.HidePanel("Player2SelectPanel");
         ScenesMgr.Instance.LoadScene("MotionScene");
         // After waiting
