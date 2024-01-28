@@ -16,9 +16,46 @@ public class ImageCyclerP2 : MonoBehaviour
 
 	private int count = 0;
 	
+	// create image2 with a size of 1
+	private Image[] image2 = new Image[1];
+
+	// public text box for pokemon name
+	public TextMeshProUGUI pokemonNameText;
+	
 
 	void Start()
 	{
+		// show green frog if first player selected Pikachu, otherwise show Pikachu, remove the unshown character
+		if (SelectedPokemon.Instance.playerAPokemon == "Pikachu")
+		{
+			//images[0].gameObject.SetActive(false);
+			//images[1].gameObject.SetActive(true);
+			//currentIndex = 1;
+			images[1].gameObject.SetActive(true);
+			image2[0] = images[1];
+			images = image2;
+			//change the text of the pokemon name
+			pokemonNameText.text = images[currentIndex].gameObject.name;
+		}
+		else
+		{
+			//images[0].gameObject.SetActive(true);
+			//images[1].gameObject.SetActive(false);
+			//currentIndex = 0;
+
+			images[0].gameObject.SetActive(true);
+			image2[0] = images[0];
+			images = image2;
+
+			//change the text of the pokemon name
+			pokemonNameText.text = images[currentIndex].gameObject.name;
+
+		}
+
+		
+
+
+
 		ShowOnlyCurrentImage();
 	}
 

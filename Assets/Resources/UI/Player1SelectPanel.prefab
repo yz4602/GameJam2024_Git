@@ -2093,9 +2093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   images:
   - {fileID: 929639776624653035}
-  - {fileID: 5678641864141197329}
   - {fileID: 2280002550909042708}
-  - {fileID: 8552113497191464873}
   pokemonNameText: {fileID: 4329657588823618279}
   pokeball: {fileID: 5503326809586182102}
   light: {fileID: 3091637776636259651}

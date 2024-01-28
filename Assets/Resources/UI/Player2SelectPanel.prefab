@@ -1944,13 +1944,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   images:
   - {fileID: 929639776624653035}
-  - {fileID: 5678641864141197329}
   - {fileID: 2280002550909042708}
-  - {fileID: 8552113497191464873}
   pokemonNameText2: {fileID: 3144591315538112746}
   pokeball: {fileID: 8705848154733052426}
   light: {fileID: 1163725374476063401}
   character: {fileID: 3248498757718133369}
+  pokemonNameText: {fileID: 3144591315538112746}
 --- !u!1 &8705848154733052426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,7 +2064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &430803533037305892
 RectTransform:
   m_ObjectHideFlags: 0
