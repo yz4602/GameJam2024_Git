@@ -73,9 +73,12 @@ public class ImageCyclerP2 : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
 		// hide the character
 		character.SetActive(false);
-
+		SoundMgr.Instance.StopBKMusic();
 		// wait for 0.4 seconds before loading the next scene
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSeconds(1.4f);
+
+	
+
         UIManager.Instance.HidePanel("Player2SelectPanel");
         ScenesMgr.Instance.LoadScene("MotionScene");
         // After waiting

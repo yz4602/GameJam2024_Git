@@ -19,7 +19,7 @@ public class StartPanel : BasePanel {
 	// Use this for initialization
 	void Start ()
 	{
-		SoundMgr.Instance.PlayBKMusic("relax-title");
+		//SoundMgr.Instance.PlayBKMusic("relax-title");
 	}
 
 	private void Drag(BaseEventData data)
