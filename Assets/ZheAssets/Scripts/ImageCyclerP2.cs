@@ -13,6 +13,8 @@ public class ImageCyclerP2 : MonoBehaviour
 	public GameObject light;
 
 	public GameObject character;
+
+	private int count = 0;
 	
 
 	void Start()
@@ -42,18 +44,19 @@ public class ImageCyclerP2 : MonoBehaviour
 
 	public void OnSelectButtonClick()
 	{
-		SoundMgr.Instance.PlaySound("ClickSound", false);
-		SoundMgr.Instance.PlaySound("PokeballCapture2", false);
-		selectedPokemon1 = images[currentIndex].gameObject.name; // get the name of the selected Pokémon
-		Debug.Log("Selected Pokémon: " + selectedPokemon1);
-		SelectedPokemon.Instance.playerBPokemon = selectedPokemon1; // set the selected Pokémon to the singleton
+		if(count == 0){
+			SoundMgr.Instance.PlaySound("ClickSound", false);
+			SoundMgr.Instance.PlaySound("PokeballCapture2", false);
+			selectedPokemon1 = images[currentIndex].gameObject.name; // get the name of the selected Pokémon
+			Debug.Log("Selected Pokémon: " + selectedPokemon1);
+			SelectedPokemon.Instance.playerBPokemon = selectedPokemon1; // set the selected Pokémon to the singleton
 
-        // activate the pokeball game object
-        pokeball.SetActive(true);
-        //anim.enabled = true;
-        StartCoroutine(WaitAndPrint(1));
-
-		
+			// activate the pokeball game object
+			pokeball.SetActive(true);
+			//anim.enabled = true;
+			StartCoroutine(WaitAndPrint(1));
+			count++;
+		}
 		//UIManager.Instance.HidePanel("Player1SelectPanel");
 		//UIManager.Instance.ShowPanel<Player2SelectPanel>("Player2SelectPanel");
 	}
