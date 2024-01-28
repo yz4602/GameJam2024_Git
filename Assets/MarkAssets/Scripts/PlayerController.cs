@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 	
 	private Animator anim;
 	
+	private AudioSource defendSound;
+	
 	private KeyCode clockwiseKey, anticlockwiseKey, defendKey;
 	
 	// Start is called before the first frame update
@@ -64,9 +66,23 @@ public class PlayerController : MonoBehaviour
 				}
 			}
 			
+			
 			if(Input.GetKey(defendKey) && !isLostBalance && !isDazed)
 			{
 				isDefend = true;
+				if(defendSound == null)
+					SoundMgr.Instance.PlaySound("Block1", false, (s) =>
+					{
+						defendSound = s;
+					});
+				else
+				{
+					if(!defendSound.isPlaying)
+						SoundMgr.Instance.PlaySound("Block1", false, (s) =>
+						{
+							defendSound = s;
+						});
+				}
 				anim.SetBool("isDefend", true);
 				defenseShied.SetActive(true);
 				defendTime += Time.deltaTime;

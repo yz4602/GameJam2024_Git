@@ -42,16 +42,25 @@ public class PlayerState : MonoBehaviour
 	{
 		float[] hpAndQgArray = hpAndQg as float[];
 		
+		if(hpAndQgArray[0] < 0)
+		{
+			if(playerName == "PlayerB") SoundMgr.Instance.PlaySound("umm", false);
+			else SoundMgr.Instance.PlaySound("ahh", false);
+		}
+		
 		if(isLostBalance)
 		{
 			Debug.Log("一击必杀");
-			
-			if(playerName == "PlayerB") UIManager.Instance.ShowPanel<PkqFinishPanel>("PkqFinishPanel");
-			else UIManager.Instance.ShowPanel<MwFinishPanel>("MwFinishPanel");
-			hpAndQGStamp = hpAndQgArray;
-			GameOverManager.Instance.isStop = true;
-			
-			Invoke("TriggerPlayerFinish", 3);
+			if(hpAndQgArray[0] < 0)
+			{	
+				if(playerName == "PlayerB") UIManager.Instance.ShowPanel<PkqFinishPanel>("PkqFinishPanel");
+				else UIManager.Instance.ShowPanel<MwFinishPanel>("MwFinishPanel");
+				
+				hpAndQGStamp = hpAndQgArray;
+				GameOverManager.Instance.isStop = true;
+				
+				Invoke("TriggerPlayerFinish", 3);
+			}	
 		}
 		
 		if(!anim.GetBool("isDefend")) anim.SetTrigger("BeHit");
@@ -74,6 +83,7 @@ public class PlayerState : MonoBehaviour
 		{
 			isLostBalance = true;
 			player.isLostBalance = true;
+			SoundMgr.Instance.PlaySound("WeakHeartBeat", false);
 			LoseBalanceDot.SetActive(true);
 			//currentLoseBalance += Time.deltaTime;
 		}

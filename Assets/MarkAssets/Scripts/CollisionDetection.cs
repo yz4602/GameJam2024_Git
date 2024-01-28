@@ -44,6 +44,7 @@ public class CollisionDetection : MonoBehaviour
 				player.GetBounced(transform.position, contactPosition);
 				hpAndQg[0] = 0;
 				hpAndQg[1] = 60;
+				SoundMgr.Instance.PlaySound("Parry", false);
 				EventCenter.Instance.EventTrigger(player.gameObject.name + "GetDamage", hpAndQg);
 				Debug.Log(player.name + " 被弹反");
 			}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameStartManger : MonoBehaviour
 {
 	public Text CountDownText;
+	public GameObject[] weapons;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -13,6 +14,7 @@ public class GameStartManger : MonoBehaviour
 		SoundMgr.Instance.PlayBKMusic("BGM1_battle");
 		GameOverManager.Instance.isStop = true;
 		StartCoroutine(DelayStart());
+		DetermineCharacter();
 	}
 
 	private IEnumerator DelayStart()
@@ -38,5 +40,20 @@ public class GameStartManger : MonoBehaviour
 		CountDownText.text = "";
 		CountDownText.gameObject.SetActive(false);
 		yield return null;
+	}
+
+	private void DetermineCharacter()
+	{
+		if(SelectedPokemon.Instance != null)
+		{
+			if(SelectedPokemon.Instance.playerAPokemon == "Pikachu"){}
+			else
+			{
+				weapons[0].SetActive(false);
+				weapons[1].SetActive(true);
+				weapons[2].SetActive(true);
+				weapons[3].SetActive(false);
+			} 
+		}
 	}
 }
