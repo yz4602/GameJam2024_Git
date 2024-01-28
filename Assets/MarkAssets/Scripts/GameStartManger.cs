@@ -12,6 +12,7 @@ public class GameStartManger : MonoBehaviour
 	void Start()
 	{
 		SoundMgr.Instance.PlayBKMusic("BGM1_battle");
+		SoundMgr.Instance.PlaySound("321go", false);
 		GameOverManager.Instance.isStop = true;
 		StartCoroutine(DelayStart());
 		DetermineCharacter();

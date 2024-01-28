@@ -21,7 +21,7 @@ public class PlayerState : MonoBehaviour
 	
 	[Header("Balance Related Parameter")]
 	private bool isLostBalance;
-	private float balanceRecoverTime = 3f;
+	private float balanceRecoverTime = 4f;
 	private float currentLoseBalance;
 	private float[] hpAndQGStamp;
 
@@ -53,8 +53,16 @@ public class PlayerState : MonoBehaviour
 			Debug.Log("一击必杀");
 			if(hpAndQgArray[0] < 0)
 			{	
-				if(playerName == "PlayerB") UIManager.Instance.ShowPanel<PkqFinishPanel>("PkqFinishPanel");
-				else UIManager.Instance.ShowPanel<MwFinishPanel>("MwFinishPanel");
+				if(playerName == "PlayerB")
+				{
+					UIManager.Instance.ShowPanel<PkqFinishPanel>("PkqFinishPanel", E_UI_Layer.Top);
+					SoundMgr.Instance.PlaySound("ChuSfx",false);
+				} 
+				else
+				{
+					UIManager.Instance.ShowPanel<MwFinishPanel>("MwFinishPanel", E_UI_Layer.Top);
+					SoundMgr.Instance.PlaySound("LetYouDown",false);
+				} 
 				
 				hpAndQGStamp = hpAndQgArray;
 				GameOverManager.Instance.isStop = true;
@@ -93,6 +101,14 @@ public class PlayerState : MonoBehaviour
 	void Update()
 	{
 		if(isLostBalance) currentLoseBalance += Time.deltaTime;
+		
+		//TODO:JIA SHI
+		if(player.isDefend)
+		{
+			currentBalance += Time.deltaTime * 8;
+			balanceBar.UpdateBalance(currentBalance);
+		}
+		
 		if(currentLoseBalance >= balanceRecoverTime)
 		{
 			isLostBalance = false;
@@ -100,7 +116,7 @@ public class PlayerState : MonoBehaviour
 			currentLoseBalance = 0;
 			LoseBalanceDot.SetActive(false);
 			
-			currentBalance = 100 - 5;
+			currentBalance = 100 - 2.5F;
 			balanceBar.UpdateBalance(currentBalance);
 		}
 	}
@@ -113,7 +129,7 @@ public class PlayerState : MonoBehaviour
 	
 	private void RecoverBalance()
 	{
-		if(currentBalance >= 0 && !isLostBalance && !GameOverManager.Instance.isStop)
+		if(currentBalance >= 0 && !isLostBalance && !GameOverManager.Instance.isStop && !player.isDefend)
 		{
 			currentBalance -= 2.5f;
 			balanceBar.UpdateBalance(currentBalance);

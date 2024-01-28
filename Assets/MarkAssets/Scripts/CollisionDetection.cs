@@ -39,7 +39,8 @@ public class CollisionDetection : MonoBehaviour
 	{
 		if(attackedPlayer.isDefend)
 		{
-			if(attackedPlayer.defendTime <= 0.1f)
+			//TODO:调整弹反的反应时间
+			if(attackedPlayer.defendTime <= 0.2f)
 			{
 				player.GetBounced(transform.position, contactPosition);
 				hpAndQg[0] = 0;

@@ -56,6 +56,7 @@ public class StartPanel : BasePanel {
 				break;
 			case "btnQuit":
 				Debug.Log("btnQuit被点击");
+				Application.Quit();
 				break;
 		}
 	}
@@ -75,6 +76,7 @@ public class StartPanel : BasePanel {
 	public void ClickQuit()
 	{
 		Debug.Log("Quit Game");
+		Application.Quit();
 	}
 }
 

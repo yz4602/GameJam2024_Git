@@ -15,13 +15,9 @@ public class ResultPanel : BasePanel {
 
 	// Use this for initialization
 	void Start () {
-
-		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerEnter, (data)=>{
-		//     Debug.Log("进入");
-		// });
-		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerExit, (data) => {
-		//     Debug.Log("离开");
-		// });
+		GetControl<Button>("btnResume").interactable = false;
+		GetControl<Button>("btnMain").interactable = false;
+		Invoke("ActiveButtons", 2.2f);
 	}
 
 	public override void ShowMe()
@@ -64,5 +60,11 @@ public class ResultPanel : BasePanel {
 	public void InitInfo()
 	{
 		Debug.Log("初始化数据");
+	}
+	
+	public void ActiveButtons()
+	{
+		GetControl<Button>("btnResume").interactable = true;
+		GetControl<Button>("btnMain").interactable = true;
 	}
 }

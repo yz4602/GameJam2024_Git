@@ -37,10 +37,10 @@ RectTransform:
   - {fileID: 3625165383576902108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.008333333, y: 0.2985185}
-  m_AnchorMax: {x: 1, y: 0.7977778}
-  m_AnchoredPosition: {x: 1921, y: 0.13101196}
-  m_SizeDelta: {x: 20, y: 9.191223}
+  m_AnchorMin: {x: 0, y: 0.29666665}
+  m_AnchorMax: {x: 1, y: 0.7977408}
+  m_AnchoredPosition: {x: 1987, y: 1.131012}
+  m_SizeDelta: {x: 119.1897, y: 7.1912003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4302201652131233279
 CanvasRenderer:
@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3625165383576902108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -274,10 +274,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hei hei
+  m_text: I will never let you down.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 3
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535

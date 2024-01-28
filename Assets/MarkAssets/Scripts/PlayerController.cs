@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 	private float TorqueToAdd = 0;
 	private bool canController = true;
 	[Tooltip("The time to recover from bounce and attack")]
-	public float recoverTime = 0.3f; // The time to recover from bounce and attack
+	public float recoverTime = 0.5f; // The time to recover from bounce and attack
 	public GameObject defenseShied;
 	public bool isDefend;
 	public float defendTime;

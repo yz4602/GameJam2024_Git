@@ -15,13 +15,7 @@ public class PkqFinishPanel : BasePanel {
 
 	// Use this for initialization
 	void Start () {
-
-		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerEnter, (data)=>{
-		//     Debug.Log("进入");
-		// });
-		// UIManager.AddCustomEventListener(GetControl<Button>("btnStart"), EventTriggerType.PointerExit, (data) => {
-		//     Debug.Log("离开");
-		// });
+		Invoke("DestroySelf", 3f);
 	}
 
 	private void Drag(BaseEventData data)
@@ -67,4 +61,10 @@ public class PkqFinishPanel : BasePanel {
 	{
 		Debug.Log("Quit Game");
 	}
+	
+	private void DestroySelf()
+	{
+		UIManager.Instance.HidePanel("PkqFinishPanel");
+	}
+	
 }

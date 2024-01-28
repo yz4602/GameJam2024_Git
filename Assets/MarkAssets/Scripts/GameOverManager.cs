@@ -32,6 +32,15 @@ public class GameOverManager : SingletonMono<GameOverManager>
 	{
 		Debug.Log(UIManager.Instance.GetPanel<ResultPanel>("ResultPanel") == null);
 		ResultPanel resultPanel = UIManager.Instance.GetPanel<ResultPanel>("ResultPanel");
-		resultPanel.GetControl("Title").text = _playerName + " Die";
+		if(_playerName == "PlayerA")
+		{
+			SoundMgr.Instance.PlaySound("GreenfrogWin", false);
+			resultPanel.GetControl("Title").text = "Green Frog" + " Win";
+		}
+		else
+		{
+			SoundMgr.Instance.PlaySound("PikachuWin", false);
+			resultPanel.GetControl("Title").text = "Pikachu" + " Win";
+		} 
 	}
 }
