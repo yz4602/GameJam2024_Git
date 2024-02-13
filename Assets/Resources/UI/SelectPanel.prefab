@@ -779,6 +779,7 @@ GameObject:
   - component: {fileID: 5998782810462435935}
   - component: {fileID: 5998782810462435934}
   - component: {fileID: 5998782810462435873}
+  - component: {fileID: 6399626906095698418}
   m_Layer: 5
   m_Name: btnContinue
   m_TagString: Untagged
@@ -900,6 +901,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &6399626906095698418
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998782810462435875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b88937441a232da47873a04774ec82bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6156859017526944971
 GameObject:
   m_ObjectHideFlags: 0

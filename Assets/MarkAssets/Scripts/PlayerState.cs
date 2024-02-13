@@ -24,6 +24,7 @@ public class PlayerState : MonoBehaviour
 	private float balanceRecoverTime = 4f;
 	private float currentLoseBalance;
 	private float[] hpAndQGStamp;
+	
 
 	void Start()
 	{

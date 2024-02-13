@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5900357376689426137}
   - component: {fileID: 4624921384484211724}
   - component: {fileID: 1141000802147346954}
+  - component: {fileID: 7209213402881008114}
   m_Layer: 5
   m_Name: btnPick
   m_TagString: Untagged
@@ -208,6 +209,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &7209213402881008114
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473548208448344240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22fc41e6634c71146a5a1b2606c7b9de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1500083556664675062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1041,7 @@ GameObject:
   - component: {fileID: 8311221620817008556}
   - component: {fileID: 6284268412945941879}
   - component: {fileID: 7228133022883072086}
+  - component: {fileID: 8522241187990248355}
   m_Layer: 5
   m_Name: Pokeball
   m_TagString: Untagged
@@ -1104,6 +1127,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8522241187990248355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503326809586182102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5959653907952247837
 GameObject:
   m_ObjectHideFlags: 0

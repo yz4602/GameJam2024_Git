@@ -17,6 +17,12 @@ public class GameStartManger : MonoBehaviour
 		StartCoroutine(DelayStart());
 		DetermineCharacter();
 	}
+	
+	
+	void Update() 
+	{
+		Camera.main.aspect = 1920f / 1080f;
+	}
 
 	private IEnumerator DelayStart()
 	{
