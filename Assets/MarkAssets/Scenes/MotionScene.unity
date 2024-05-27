@@ -1292,7 +1292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &483309916
 Transform:
   m_ObjectHideFlags: 0
@@ -6697,6 +6697,19 @@ MonoBehaviour:
     isDefend: 0
     isHit: 0
     isDie: 0
+    player: {fileID: 0}
+    LoseBalanceDot: {fileID: 0}
+    playerName: 
+    currentHealth: 0
+    currentBalance: 0
+    maxHealth: 300
+    minBalance: 0
+    healthBar: {fileID: 0}
+    balanceBar: {fileID: 0}
+    isLostBalance: 0
+    balanceRecoverTime: 4
+    currentLoseBalance: 0
+    hpAndQGStamp: []
 --- !u!70 &1448619315600930744
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7273,6 +7286,19 @@ MonoBehaviour:
     isDefend: 0
     isHit: 0
     isDie: 0
+    player: {fileID: 0}
+    LoseBalanceDot: {fileID: 0}
+    playerName: 
+    currentHealth: 0
+    currentBalance: 0
+    maxHealth: 300
+    minBalance: 0
+    healthBar: {fileID: 0}
+    balanceBar: {fileID: 0}
+    isLostBalance: 0
+    balanceRecoverTime: 4
+    currentLoseBalance: 0
+    hpAndQGStamp: []
 --- !u!70 &4407522182210149999
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7596,6 +7622,19 @@ MonoBehaviour:
     isDefend: 0
     isHit: 0
     isDie: 0
+    player: {fileID: 0}
+    LoseBalanceDot: {fileID: 339382461568909926}
+    playerName: 
+    currentHealth: 0
+    currentBalance: 0
+    maxHealth: 300
+    minBalance: 0
+    healthBar: {fileID: 1064239813}
+    balanceBar: {fileID: 939332071}
+    isLostBalance: 0
+    balanceRecoverTime: 4
+    currentLoseBalance: 0
+    hpAndQGStamp: []
 --- !u!1 &7304435464509127186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7778,6 +7817,19 @@ MonoBehaviour:
     isDefend: 0
     isHit: 0
     isDie: 0
+    player: {fileID: 0}
+    LoseBalanceDot: {fileID: 3280193971937340337}
+    playerName: 
+    currentHealth: 0
+    currentBalance: 0
+    maxHealth: 300
+    minBalance: 0
+    healthBar: {fileID: 457201927}
+    balanceBar: {fileID: 129557879}
+    isLostBalance: 0
+    balanceRecoverTime: 4
+    currentLoseBalance: 0
+    hpAndQGStamp: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

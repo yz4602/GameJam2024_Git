@@ -99,6 +99,8 @@ public class BlockState : IState
 		{
 			manager.TransitionState(StateType.Idle);
 		}
+		parameter.currentBalance += Time.deltaTime * 8;
+		parameter.balanceBar.UpdateBalance(parameter.currentBalance);
 	}
 	
 	public void OnExit()
