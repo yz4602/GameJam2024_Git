@@ -7,6 +7,7 @@ public class PlayerState : MonoBehaviour
 {
 	public PlayerController player;
 	public Animator anim;
+	public FSM fsm;
 	public GameObject LoseBalanceDot;
 	private string playerName;
 	
@@ -27,7 +28,7 @@ public class PlayerState : MonoBehaviour
 	
 
 	void Start()
-	{
+	{		
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 
@@ -72,7 +73,11 @@ public class PlayerState : MonoBehaviour
 			}	
 		}
 		
-		if(!anim.GetBool("isDefend")) anim.SetTrigger("BeHit");
+		if(!fsm.parameter.isDefend)
+		{
+			fsm.parameter.isHit = true;
+			//anim.SetTrigger("BeHit");
+		} 
 		
 		currentHealth += hpAndQgArray[0];	
 		currentBalance += hpAndQgArray[1];
@@ -82,7 +87,9 @@ public class PlayerState : MonoBehaviour
 
 		if(currentHealth <= 0 && !isLostBalance)
 		{
-			anim.SetTrigger("Die");
+			fsm.parameter.isDie = true;
+			//anim.SetTrigger("Die");
+			
 			player.GetComponentInChildren<KeepRotation>().enabled = false;
 			player.transform.GetChild(0).rotation = quaternion.identity;
 			EventCenter.Instance.EventTrigger("PlayerDie", player.name);
@@ -141,7 +148,10 @@ public class PlayerState : MonoBehaviour
 	{
 		currentHealth += hpAndQGStamp[0] < 0 ? -999 : 0;
 		healthBar.UpdateHealth(currentHealth);
-		anim.SetTrigger("Die");
+		
+		fsm.parameter.isDie = true;
+		//anim.SetTrigger("Die");
+		
 		player.GetComponentInChildren<KeepRotation>().enabled = false;
 		player.transform.GetChild(0).rotation = quaternion.identity;
 		EventCenter.Instance.EventTrigger("PlayerDie", player.name);

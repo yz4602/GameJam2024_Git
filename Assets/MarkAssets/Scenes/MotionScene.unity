@@ -1322,6 +1322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4188531371635022287}
   anim: {fileID: 7222397030925109784}
+  fsm: {fileID: 7222397030925109785}
   LoseBalanceDot: {fileID: 339382461568909926}
   currentHealth: 0
   currentBalance: 0
@@ -1343,6 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1373750246210891800}
   anim: {fileID: 9015304079464099366}
+  fsm: {fileID: 9015304079464099367}
   LoseBalanceDot: {fileID: 3280193971937340337}
   currentHealth: 0
   currentBalance: 0
@@ -6690,6 +6692,11 @@ MonoBehaviour:
   isJump: 0
   defendTime: 0
   isLostBalance: 0
+  FMSParameter:
+    animator: {fileID: 0}
+    isDefend: 0
+    isHit: 0
+    isDie: 0
 --- !u!70 &1448619315600930744
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7261,6 +7268,11 @@ MonoBehaviour:
   isJump: 0
   defendTime: 0
   isLostBalance: 0
+  FMSParameter:
+    animator: {fileID: 0}
+    isDefend: 0
+    isHit: 0
+    isDie: 0
 --- !u!70 &4407522182210149999
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7397,6 +7409,7 @@ GameObject:
   - component: {fileID: 1373750246210891800}
   - component: {fileID: 1835038948379212341}
   - component: {fileID: 9015304079464099366}
+  - component: {fileID: 9015304079464099367}
   m_Layer: 0
   m_Name: PlayerB
   m_TagString: Untagged
@@ -7537,6 +7550,7 @@ GameObject:
   - component: {fileID: 4188531371635022287}
   - component: {fileID: 3478876463900775394}
   - component: {fileID: 7222397030925109784}
+  - component: {fileID: 7222397030925109785}
   m_Layer: 0
   m_Name: PlayerA
   m_TagString: Untagged
@@ -7565,6 +7579,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7222397030925109785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222397030925109783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70939ca4221dcb44b0d6d796c133a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameter:
+    animator: {fileID: 7222397030925109784}
+    isDefend: 0
+    isHit: 0
+    isDie: 0
 --- !u!1 &7304435464509127186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7730,6 +7761,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9015304079464099367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551590684437472192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70939ca4221dcb44b0d6d796c133a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameter:
+    animator: {fileID: 9015304079464099366}
+    isDefend: 0
+    isHit: 0
+    isDie: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

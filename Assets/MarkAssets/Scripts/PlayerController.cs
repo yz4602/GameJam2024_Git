@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 	private KeyCode clockwiseKey, anticlockwiseKey, defendKey, jumpKey;
 	private ResetAttack resetAttack;
 	private bool recoverTimeBounceOver;
+	public Parameter FMSParameter;
 	
 	// Start is called before the first frame update
 	void Awake()
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
 		anim = GetComponent<Animator>();
 		rig = GetComponent<Rigidbody2D>();
 		resetAttack = GetComponentInChildren<ResetAttack>();
+		FMSParameter = GetComponentInChildren<FSM>().parameter;
+		
 		if(gameObject.name == "PlayerA")
 		{
 			clockwiseKey = KeyCode.A;
@@ -104,7 +107,10 @@ public class PlayerController : MonoBehaviour
 				// 			defendSound = s;
 				// 		});
 				// }
-				anim.SetBool("isDefend", true);
+				
+				FMSParameter.isDefend = true;
+				//anim.SetBool("isDefend", true);
+				
 				defenseShied.SetActive(true);
 				defendTime += Time.deltaTime;
 			}
@@ -113,8 +119,10 @@ public class PlayerController : MonoBehaviour
 				if(isDefend)
 				{
 					isDefend = false;
-					Debug.Log("停defend");
-					anim.SetBool("isDefend", false);
+					
+					FMSParameter.isDefend = false;
+					//anim.SetBool("isDefend", false);
+					
 					defendTime = 0;
 					defenseShied.SetActive(false);
 				} 
